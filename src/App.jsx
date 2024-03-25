@@ -7,23 +7,35 @@ import SectionProducts from "./components/SectionProducts.jsx";
 import SectionAbout from "./components/SectionAbout.jsx";
 import ContactForm from "./components/ContactForm.jsx";
 import Footer from "./components/Footer.jsx";
-
+import AGB from "./components/AGB.jsx";
 
 const App = () => {
-  return (
-    <div className={"main"}>
-      <Header />
-      <div className={"heroSection"}>
-        <Hero />
-      </div>
-      <SectionDienstleistungen />
-      <SectionProducts />
-      <SectionAbout />
-        <ContactForm />
+    const [agb, setAgb] = React.useState(false);
 
-        <Footer />
-    </div>
-  );
+    const handleAGB = () => {
+        setAgb(true);
+    }
+
+    // Überprüfung der AGB-Zustand und Rückgabe entsprechender JSX
+    if (!agb) {
+        return (
+            <div className="main">
+                <Header />
+                <div className="heroSection">
+                    <Hero />
+                </div>
+                <SectionDienstleistungen />
+                <SectionProducts />
+                <SectionAbout />
+                <ContactForm />
+                <Footer handleAGB={()=> handleAGB()} />
+            </div>
+        );
+    } else {
+        return (
+            <AGB />
+        );
+    }
 };
 
 export default App;
