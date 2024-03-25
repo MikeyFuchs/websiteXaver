@@ -8,16 +8,21 @@ import SectionAbout from "./components/SectionAbout.jsx";
 import ContactForm from "./components/ContactForm.jsx";
 import Footer from "./components/Footer.jsx";
 import AGB from "./components/AGB.jsx";
+import Impressum from "./components/Impressum.jsx";
 
 const App = () => {
     const [agb, setAgb] = React.useState(false);
-
+    const [impressum, setImpressum] = React.useState(false);
     const handleAGB = () => {
         setAgb(true);
     }
+    const handleImpressum = () => {
+        console.log('Impressum');
+        setImpressum(true);
+    }
 
     // Überprüfung der AGB-Zustand und Rückgabe entsprechender JSX
-    if (!agb) {
+    if (!agb && !impressum) {
         return (
             <div className="main">
                 <Header />
@@ -28,12 +33,19 @@ const App = () => {
                 <SectionProducts />
                 <SectionAbout />
                 <ContactForm />
-                <Footer handleAGB={()=> handleAGB()} />
+                <Footer
+                    handleAGB={()=> handleAGB()}
+                    handleImpressum={()=> handleImpressum()}
+                />
             </div>
         );
-    } else {
+    } else if (agb) {
         return (
             <AGB />
+        );
+    } else if (impressum) {
+        return (
+            <Impressum />
         );
     }
 };

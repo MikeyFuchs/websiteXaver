@@ -2,6 +2,10 @@ import React from "react";
 import Footer from "./Footer";
 import SecundaryHeader from "./SecundaryHeader.jsx";
 const AGB = () => {
+
+  const handleImpressum = () => {
+    setImpressum(true);
+  }
   return (
     <div>
       <SecundaryHeader />
@@ -64,7 +68,9 @@ const AGB = () => {
           des Anbieters nicht kopiert oder anderweitig verwendet werden.
         </p>
       </div>
-      <Footer />
+      <Footer
+          handleImpressum={()=> handleImpressum()}
+      />
     </div>
   );
 };
