@@ -50,7 +50,6 @@ body {
 .mobileMenu.active {
   display: flex;
   position: fixed;
-  transition: all 0.3s ease; /* Übergang für das Erscheinen und Verschwinden des Menüs */
 }
 
 .mobileMenu {
@@ -69,7 +68,14 @@ body {
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding-bottom: 2vh;
+  transition: all 0.3s ease; /* Übergang für das Erscheinen und Verschwinden des Menüs */
 
+}
+
+.mobileMenu .active:active {
+  transition: 0.1s;
+  scale: 2;
+  color: white;
 }
 
 .mobileMenu a {

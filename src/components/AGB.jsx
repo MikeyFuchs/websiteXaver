@@ -6,6 +6,8 @@ const AGB = () => {
   const handleImpressum = () => {
     setImpressum(true);
   }
+
+
   return (
     <div>
       <SecundaryHeader />
